@@ -154,17 +154,18 @@ def demo(screen, scene):
     screen.play(scenes, stop_on_resize=True, start_scene=scene)
 
 experiments = ExperimentModel()
-
 # read config
 config = yaml.safe_load(open(os.path.join(Path.home(), ".config/elabtui/config.yml")))
 # init manager from elabapy
 manager = elabapy.Manager(token=config["token"], endpoint=config["endpoint"], dev=True)
 
-last_scene = None
+def main():
 
-while True:
-    try:
-        Screen.wrapper(demo, catch_interrupt=True, arguments=[last_scene])
-        sys.exit(0)
-    except ResizeScreenError as e:
-        last_scene = e.scene
+    last_scene = None
+
+    while True:
+        try:
+            Screen.wrapper(demo, catch_interrupt=True, arguments=[last_scene])
+            sys.exit(0)
+        except ResizeScreenError as e:
+            last_scene = e.scene
