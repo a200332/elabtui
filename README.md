@@ -31,3 +31,9 @@ endpoint: https://elabftw.example.org/api/v1/
 ~~~bash
 elabtui
 ~~~
+
+## Make new release
+
+* edit `setup.py` and `elabtui/__init__.py` to change version
+* python setup.py sdist bdist_egg bdist_wheel
+* twine upload dist/*
