@@ -12,7 +12,7 @@ long_description = """This is a text user interface to eLabFTW."""
 setup(
     name='elabtui',
     packages = ['elabtui'],
-    version='0.1.0',
+    version='0.2.0',
     description='elabftw text user interface to manage experiments',
     author='Nicolas CARPi',
     author_email='nicolas.carpi@curie.fr',
