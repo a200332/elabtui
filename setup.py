@@ -12,12 +12,12 @@ long_description = """This is a text user interface to eLabFTW."""
 setup(
     name='elabtui',
     packages = ['elabtui'],
-    version='0.2.0',
+    version='0.2.2',
     description='elabftw text user interface to manage experiments',
     author='Nicolas CARPi',
     author_email='nicolas.carpi@curie.fr',
     url='https://github.com/elabftw/elabtui',
-    install_requires=['asciimatics', 'elabapy', 'yaml'],
+    install_requires=['asciimatics', 'elabapy', 'pyyaml'],
     license='GPL v3',
     long_description=long_description,
     entry_points={
