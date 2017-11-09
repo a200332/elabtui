@@ -17,7 +17,7 @@ setup(
     author='Nicolas CARPi',
     author_email='nicolas.carpi@curie.fr',
     url='https://github.com/elabftw/elabtui',
-    install_requires=['asciimatics', 'elabapy'],
+    install_requires=['asciimatics', 'elabapy', 'yaml'],
     license='GPL v3',
     long_description=long_description,
     entry_points={
