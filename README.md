@@ -9,7 +9,7 @@ This project is more a proof-of-concept than anything, but if you want to try, i
 ## Installation
 
 ~~~bash
-sudo pip install elabtui
+pip install --user elabtui
 ~~~
 
 ## Configuration
