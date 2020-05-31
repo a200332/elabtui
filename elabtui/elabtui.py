@@ -3,16 +3,18 @@
 # https://www.elabftw.net
 # https://github.com/elabftw/elabtui
 
-from asciimatics.widgets import Frame, ListBox, Layout, Divider, Text, \
-    Button, TextBox, Widget
-from asciimatics.scene import Scene
-from asciimatics.screen import Screen
-from asciimatics.exceptions import ResizeScreenError, NextScene, StopApplication
-from pathlib import Path
-import os.path
 import sys
+from pathlib import Path
+
 import elabapy
 import yaml
+from asciimatics.exceptions import (NextScene, ResizeScreenError,
+                                    StopApplication)
+from asciimatics.scene import Scene
+from asciimatics.screen import Screen
+from asciimatics.widgets import (Button, Divider, Frame, Layout, ListBox, Text,
+                                 TextBox, Widget)
+
 
 class ExperimentModel(object):
     def __init__(self):
@@ -130,10 +132,10 @@ class ExperimentView(Frame):
         layout2.add_widget(Button("Cancel", self._cancel), 3)
         self.fix()
 
-    def reset(self):
+    #def reset(self):
         # Do standard reset to clear out form, then populate with new data.
-        super(ExperimentView, self).reset()
-        self.data = self._model.get_current_experiment()
+        #super(ExperimentView, self).reset()
+        #self.data = self._model.get_current_experiment()
 
     def _ok(self):
         self.save()
@@ -155,9 +157,11 @@ def demo(screen, scene):
 
 experiments = ExperimentModel()
 # read config
-config = yaml.safe_load(open(os.path.join(Path.home(), ".config/elabtui/config.yml")))
+configPath = Path.home().joinpath(".config/elabtui/config.yml")
+with open(configPath, 'r') as configFile:
+    config = yaml.safe_load(configFile)
 # init manager from elabapy
-manager = elabapy.Manager(token=config["token"], endpoint=config["endpoint"], dev=True)
+manager = elabapy.Manager(token=config["token"], endpoint=config["endpoint"], verify=False)
 
 def main():
 
